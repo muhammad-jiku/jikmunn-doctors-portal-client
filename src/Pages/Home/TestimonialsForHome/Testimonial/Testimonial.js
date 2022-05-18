@@ -11,7 +11,7 @@ function Testimonial({ review }) {
               <img src={review?.img} alt={review?.name} />
             </div>
           </div>
-          <div className="flex flex-col items-start justify-start font-semibold p-2">
+          <div className="flex flex-col items-start justify-start font-semibold px-2">
             <h1 className="text-xl">{review?.name}</h1>
             <h1>{review?.address}</h1>
           </div>
