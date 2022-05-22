@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="bg-footer-image bg-cover bg-center">
+    <div className="bg-footer-image bg-cover bg-center mt-auto">
       <footer className="footer p-10 text-base-content">
         <div>
           <span className="footer-title">Services</span>

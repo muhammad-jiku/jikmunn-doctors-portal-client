@@ -1,18 +1,73 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
 
-function AppointmentModal({ date, treatment, setTreatment }) {
-  const { _id, title, slots } = treatment;
+function AppointmentModal({ date, treatment, setTreatment, refetch }) {
+  const [user] = useAuthState(auth);
+
+  const { _id, title, availableSlots, price } = treatment;
+  // date && format(date,'PP') is used for preventing 'date-fns' error of RangeError: Invalid time value
+  // const formattedDate = date && format(date, 'PP');
+  const formattedDate = format(date, 'PP');
 
   const handleBooking = (e) => {
     e.preventDefault();
 
     const slot = e?.target?.slot?.value;
-    const name = e?.target?.name?.value;
+    const displayName = e?.target?.displayName?.value;
+    // const price = e?.target?.price?.value;
     const phone = e?.target?.phone?.value;
     const email = e?.target?.email?.value;
-    console.log(_id, title, slot, name, phone, email);
-    setTreatment(null);
+    console.log(_id, title, slot, displayName, price, phone, email);
+    console.log(formattedDate);
+
+    const appointmentBooking = {
+      treatmentId: _id,
+      treatment: title,
+      fee: price,
+      date: formattedDate,
+      patientSlotTime: slot,
+      patientName: displayName,
+      patientPhone: phone,
+      patient: email,
+    };
+
+    fetch('https://jikmunn-doctors-portal.herokuapp.com/booking', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(appointmentBooking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data?.acknowledged) {
+          toast.success(
+            'You just set an appointment for ' +
+              title +
+              ' at ' +
+              slot +
+              ' on ' +
+              formattedDate
+          );
+        } else {
+          toast.error(
+            'You already set an appointment for ' +
+              title +
+              ' at ' +
+              data?.appointmentBooking?.patientSlotTime +
+              ' on ' +
+              data?.appointmentBooking?.date
+          );
+        }
+        refetch();
+        // closing modal
+        setTreatment(null);
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div>
@@ -34,7 +89,7 @@ function AppointmentModal({ date, treatment, setTreatment }) {
           >
             <input
               type="text"
-              value={format(date, 'PP')}
+              value={formattedDate}
               readOnly
               required
               disabled
@@ -44,17 +99,28 @@ function AppointmentModal({ date, treatment, setTreatment }) {
               name="slot"
               className="select select-primary w-full max-w-xs"
             >
-              {slots?.map((slot) => (
-                <option key={slot} value={slot}>
+              {availableSlots?.map((slot, idx) => (
+                <option key={idx} value={slot}>
                   {slot}
                 </option>
               ))}
             </select>
             <input
               type="text"
-              name="name"
-              placeholder="Full Name"
+              name="displayName"
+              value={user?.displayName}
+              readOnly
               required
+              disabled
+              className="input input-bordered input-primary w-full max-w-xs mb-2"
+            />
+            <input
+              type="text"
+              name="price"
+              value={`BDT ${price} only`}
+              readOnly
+              required
+              disabled
               className="input input-bordered input-primary w-full max-w-xs mb-2"
             />
             <input
@@ -67,8 +133,10 @@ function AppointmentModal({ date, treatment, setTreatment }) {
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              value={user?.email}
+              readOnly
               required
+              disabled
               className="input input-bordered input-primary w-full max-w-xs mb-2"
             />
             <input

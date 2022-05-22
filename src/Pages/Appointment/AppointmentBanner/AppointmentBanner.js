@@ -14,7 +14,12 @@ function AppointmentBanner({ date, setDate }) {
             className="rounded-lg shadow-2xl lg:max-w-sm"
           />
           <div>
-            <DayPicker mode="single" selected={date} onSelect={setDate} />
+            <DayPicker
+              mode="single"
+              selected={date}
+              // onSelect={setDate}
+              onDayClick={setDate} // is used for preventing 'date-fns' error of RangeError: Invalid time value
+            />
           </div>
         </div>
       </div>
