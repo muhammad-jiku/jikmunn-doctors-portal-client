@@ -15,9 +15,7 @@ function AddDoctor() {
   } = useForm();
 
   const { data: service, isLoading } = useQuery('service', () =>
-    fetch('https://jikmunn-doctors-portal.herokuapp.com/services').then((res) =>
-      res.json()
-    )
+    fetch('http://localhost:5000/services').then((res) => res.json())
   );
 
   // 3 ways to store images
@@ -42,7 +40,7 @@ function AddDoctor() {
           };
           // send doctor's details to database
           console.log("doctor's details ", doctor);
-          fetch(`https://jikmunn-doctors-portal.herokuapp.com/doctor`, {
+          fetch(`http://localhost:5000/doctor`, {
             method: 'POST',
             headers: {
               authorization: `Bearer ${localStorage?.getItem('accessToken')}`,

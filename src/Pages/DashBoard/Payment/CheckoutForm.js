@@ -20,7 +20,7 @@ function CheckoutForm({ appointment }) {
   } = appointment;
 
   useEffect(() => {
-    fetch(`https://jikmunn-doctors-portal.herokuapp.com/createpaymentintent`, {
+    fetch(`http://localhost:5000/createpaymentintent`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -95,7 +95,7 @@ function CheckoutForm({ appointment }) {
         appointmentId: _id,
         transactionId: paymentIntent?.id,
       };
-      fetch(`https://jikmunn-doctors-portal.herokuapp.com/booking/${_id}`, {
+      fetch(`http://localhost:5000/booking/${_id}`, {
         method: 'PATCH',
         headers: {
           'content-type': 'application/json',

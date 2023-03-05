@@ -11,7 +11,7 @@ function DeleteConfirmModal({
 
   const handleDelete = () => {
     // console.log(email);
-    fetch(`https://jikmunn-doctors-portal.herokuapp.com/doctor/${email}`, {
+    fetch(`http://localhost:5000/doctor/${email}`, {
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${localStorage?.getItem('accessToken')}`,

@@ -12,7 +12,7 @@ function ManageDoctors() {
     isLoading,
     refetch,
   } = useQuery('doctors', () =>
-    fetch('https://jikmunn-doctors-portal.herokuapp.com/doctors', {
+    fetch('http://localhost:5000/doctors', {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage?.getItem('accessToken')}`,

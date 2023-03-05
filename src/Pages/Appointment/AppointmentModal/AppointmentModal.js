@@ -34,7 +34,7 @@ function AppointmentModal({ date, treatment, setTreatment, refetch }) {
       patient: email,
     };
 
-    fetch('https://jikmunn-doctors-portal.herokuapp.com/booking', {
+    fetch('http://localhost:5000/booking', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

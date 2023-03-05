@@ -7,7 +7,7 @@ const useAdmins = (admin) => {
     const email = admin?.email;
     if (email) {
     }
-    fetch(`https://jikmunn-doctors-portal.herokuapp.com/admin/${email}`, {
+    fetch(`http://localhost:5000/admin/${email}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage?.getItem('accessToken')}`,

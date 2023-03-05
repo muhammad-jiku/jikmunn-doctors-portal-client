@@ -9,7 +9,7 @@ import CheckoutForm from './CheckoutForm';
 function Payment() {
   const { id } = useParams();
   const { data: appointment, isLoading } = useQuery([' appointment', id], () =>
-    fetch(`https://jikmunn-doctors-portal.herokuapp.com/booking/${id}`, {
+    fetch(`http://localhost:5000/booking/${id}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage?.getItem('accessToken')}`,

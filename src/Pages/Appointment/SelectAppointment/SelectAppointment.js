@@ -18,15 +18,15 @@ function SelectAppointment({ date }) {
     isLoading,
     refetch,
   } = useQuery(['available', formattedDate], () =>
-    fetch(
-      `https://jikmunn-doctors-portal.herokuapp.com/available?date=${formattedDate}`
-    ).then((res) => res.json())
+    fetch(`http://localhost:5000/available?date=${formattedDate}`).then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) return <Spinner />;
 
   // useEffect(() => {
-  //   fetch(`https://jikmunn-doctors-portal.herokuapp.com/available?date=${formattedDate}`)
+  //   fetch(`http://localhost:5000/available?date=${formattedDate}`)
   //     .then((res) => res.json())
   //     .then((data) => setServices(data))
   //     .catch((err) => console.log(err));

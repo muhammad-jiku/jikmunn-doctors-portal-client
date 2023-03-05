@@ -12,15 +12,12 @@ function MyAppointments() {
 
   useEffect(() => {
     if (user) {
-      fetch(
-        `https://jikmunn-doctors-portal.herokuapp.com/booking?patient=${user?.email}`,
-        {
-          method: 'GET',
-          headers: {
-            authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
-          },
-        }
-      )
+      fetch(`http://localhost:5000/booking?patient=${user?.email}`, {
+        method: 'GET',
+        headers: {
+          authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
+        },
+      })
         .then((res) => {
           console.log('response ', res);
           if (res.status === 401 || res.status === 403) {
