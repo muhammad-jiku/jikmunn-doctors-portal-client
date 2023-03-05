@@ -17,19 +17,8 @@ function Payment() {
     }).then((res) => res.json())
   );
 
-  //   const {
-  //     date,
-  //     fee,
-  //     patient,
-  //     patientName,
-  //     patientPhone,
-  //     patientSlotTime,
-  //     treatment,
-  //     _id,
-  //   } = appointment;
-
   const stripePromise = loadStripe(
-    'pk_test_51L1xjlI8Pcw7BJpaYSjSszfpHUgQMwhYrr8jEgZtEadNtp4t2dOGzhHbls5x5XQQXMdFAlH5wQsfITnipSWrkAlM00KAvqRZXd'
+    'pk_test_51L1xjlI8Pcw7BJpaH2G1kmAnTfqfWl01yTQD7H6bSR58kx6Kr2tRqFebFTTO0bjtllQOr4lpbuRYSpgg3feAKZzR00Vo9XH4J0'
   );
 
   if (isLoading) return <Spinner />;

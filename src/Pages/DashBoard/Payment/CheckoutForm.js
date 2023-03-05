@@ -8,17 +8,6 @@ function CheckoutForm({ appointment }) {
   const [clientSecret, setClientSecret] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const {
-    //     date,
-    fee,
-    patient,
-    patientName,
-    //     patientPhone,
-    //     patientSlotTime,
-    //     treatment,
-    _id,
-  } = appointment;
-
   useEffect(() => {
     fetch(`http://localhost:5000/createpaymentintent`, {
       method: 'POST',
@@ -26,7 +15,7 @@ function CheckoutForm({ appointment }) {
         'content-type': 'application/json',
         authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
       },
-      body: JSON.stringify({ fee }),
+      body: JSON.stringify({ fee: appointment?.fee }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -36,10 +25,12 @@ function CheckoutForm({ appointment }) {
         }
       })
       .catch((err) => console.log(err));
-  }, [fee]);
+  }, [appointment?.fee]);
 
   const stripe = useStripe();
   const elements = useElements();
+  console.log('stripe...', stripe);
+  console.log('success...', success);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -74,14 +65,14 @@ function CheckoutForm({ appointment }) {
         payment_method: {
           card: card,
           billing_details: {
-            name: patientName,
-            email: patient,
+            name: appointment?.patientName,
+            email: appointment?.patient,
           },
         },
       });
 
     if (error || intentError) {
-      console.log(error, intentError);
+      console.log('error....', error, intentError);
       setCardError(error?.message || intentError?.message);
       success('');
       setIsProcessing(false);
@@ -92,10 +83,10 @@ function CheckoutForm({ appointment }) {
       setTransactionId(paymentIntent?.id);
       // store payment data on database
       const payment = {
-        appointmentId: _id,
+        appointmentId: appointment?._id,
         transactionId: paymentIntent?.id,
       };
-      fetch(`http://localhost:5000/booking/${_id}`, {
+      fetch(`http://localhost:5000/booking/${appointment?._id}`, {
         method: 'PATCH',
         headers: {
           'content-type': 'application/json',
