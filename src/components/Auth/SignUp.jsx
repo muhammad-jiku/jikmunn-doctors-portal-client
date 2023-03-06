@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -8,7 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../customHooks/useToken/useToken';
 import auth from '../../firebase.init';
 import LoadingBar from '../Shared/LoadingBar';
-import SocialSignIn from './SocialSignIn';
+import googleLogo from '../../assets/images/google.png';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -25,11 +26,13 @@ const SignUp = () => {
       sendEmailVerification: true,
     });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
 
   let signInError;
   let from = location.state?.from?.pathname || '/';
 
-  const [token] = useToken(user);
+  const [token] = useToken(user || googleUser);
 
   useEffect(() => {
     if (token) {
@@ -38,15 +41,15 @@ const SignUp = () => {
     }
   }, [token, navigate, from]);
 
-  if (loading || updating) {
+  if (loading || googleLoading || updating) {
     return <LoadingBar />;
   }
 
-  if (error || updateError) {
+  if (error || googleError || updateError) {
     signInError = (
       <div>
         <p className="text-red-500 text-sm">
-          {error?.message || updateError?.message}
+          {error?.message || googleError?.message || updateError?.message}
         </p>
       </div>
     );
@@ -199,7 +202,9 @@ const SignUp = () => {
             </div> */}
             <div className="divider font-bold">or</div>
             <div className="form-control mb-4">
-              <SocialSignIn />
+              <button className="btn" onClick={() => signInWithGoogle()}>
+                Continue with <img src={googleLogo} alt="" className="ml-2" />
+              </button>
             </div>
           </div>
         </div>

@@ -1,9 +1,3 @@
-import {
-  faStar,
-  faQuoteLeft,
-  faQuoteRight,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useQuery } from 'react-query';
 import LoadingBar from '../../components/Shared/LoadingBar';

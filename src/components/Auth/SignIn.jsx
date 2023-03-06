@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -9,7 +10,7 @@ import { toast } from 'react-toastify';
 import useToken from '../../customHooks/useToken/useToken';
 import auth from '../../firebase.init';
 import LoadingBar from '../Shared/LoadingBar';
-import SocialSignIn from './SocialSignIn';
+import googleLogo from '../../assets/images/google.png';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -26,11 +27,13 @@ const SignIn = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, resetError] =
     useSendPasswordResetEmail(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
 
   let signInError;
   let from = location.state?.from?.pathname || '/';
 
-  const [token] = useToken(user);
+  const [token] = useToken(user || googleUser);
 
   useEffect(() => {
     if (token) {
@@ -57,15 +60,15 @@ const SignIn = () => {
     }
   };
 
-  if (loading || sending) {
+  if (loading || googleLoading || sending) {
     return <LoadingBar />;
   }
 
-  if (error || resetError) {
+  if (error || googleError || resetError) {
     signInError = (
       <div>
         <p className="text-red-500 text-sm">
-          {error?.message || resetError?.message}
+          {error?.message || googleError?.message || resetError?.message}
         </p>
       </div>
     );
@@ -186,7 +189,9 @@ const SignIn = () => {
             </div> */}
             <div className="divider font-bold">or</div>
             <div className="form-control mb-4">
-              <SocialSignIn />
+              <button className="btn" onClick={() => signInWithGoogle()}>
+                Continue with <img src={googleLogo} alt="" className="ml-2" />
+              </button>
             </div>
           </div>
         </div>

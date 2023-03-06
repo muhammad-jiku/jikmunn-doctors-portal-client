@@ -56,7 +56,7 @@ const Testimonials = () => {
         </div>
       </div>
       <div className="container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-6 md:px-12">
-        {reviews?.slice(-3)?.mapmap((review) => (
+        {reviews?.slice(-3)?.map((review) => (
           <Testimonial key={review?._id} review={review} />
         ))}
       </div>

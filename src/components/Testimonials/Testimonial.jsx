@@ -10,11 +10,16 @@ const Testimonial = ({ review }) => {
         <div className="card-actions justify-start my-2">
           <div className="avatar">
             <div className="w-12 lg:w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={review?.img} alt={review?.name} />
+              <img
+                src={review?.img}
+                alt={review?.displayName}
+                title={review?.displayName}
+                loading="lazy"
+              />
             </div>
           </div>
           <div className="flex flex-col items-start justify-start font-semibold px-2">
-            <h1 className="text-xl">{review?.name}</h1>
+            <h1 className="text-xl">{review?.displayName}</h1>
             <h1 className="text-xl flex items-center">
               {review?.rating}
               <span>
