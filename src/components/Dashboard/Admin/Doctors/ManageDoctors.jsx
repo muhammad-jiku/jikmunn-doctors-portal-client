@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+
+//  external import
 import { useQuery } from 'react-query';
-import LoadingBar from '../../../Shared/LoadingBar';
+
+//  internal imports
 import DeleteModal from '../DeleteModal';
 import DoctorTableRow from './DoctorTableRow';
+import LoadingBar from '../../../Shared/LoadingBar';
 
 const ManageDoctors = () => {
   const [confirmDelteModal, setConfirmDelteModal] = useState(null);

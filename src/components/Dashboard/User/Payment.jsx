@@ -1,10 +1,14 @@
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
+
+//  external imports
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import LoadingBar from '../../Shared/LoadingBar';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+//  internal imports
 import NotFound from '../../Shared/NotFound';
+import LoadingBar from '../../Shared/LoadingBar';
 import CheckoutPayment from './CheckoutPayment';
 
 const Payment = () => {

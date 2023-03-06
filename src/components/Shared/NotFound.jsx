@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  external import
 import { useNavigate } from 'react-router-dom';
 
 const NotFound = () => {

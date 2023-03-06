@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+//  internal imports
 import AppointmentBanner from './AppointmentBanner';
 import SelectAppointment from './SelectAppointment';
 

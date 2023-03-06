@@ -1,7 +1,11 @@
-import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+
+//  external imports
+import { signOut } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+//  internal import
 import auth from '../../../firebase.init';
 
 const ManageAppointments = () => {

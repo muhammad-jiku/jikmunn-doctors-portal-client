@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+
+//  external imports
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
@@ -6,10 +8,12 @@ import {
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
-import useToken from '../../customHooks/useToken/useToken';
+
+//  internal imports
 import auth from '../../firebase.init';
 import LoadingBar from '../Shared/LoadingBar';
 import googleLogo from '../../assets/images/google.png';
+import useToken from '../../customHooks/useToken/useToken';
 
 const SignUp = () => {
   const navigate = useNavigate();

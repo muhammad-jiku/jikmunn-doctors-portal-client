@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  internal imports
 import InfoCard from './InfoCard';
 import Clock from '../../../assets/icons/clock.svg';
 import Marker from '../../../assets/icons/marker.svg';

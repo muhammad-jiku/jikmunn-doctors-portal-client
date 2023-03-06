@@ -1,7 +1,11 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { useQuery } from 'react-query';
+
+//  external imports
 import { toast } from 'react-toastify';
+import { useQuery } from 'react-query';
+import { useForm } from 'react-hook-form';
+
+//  internal import
 import LoadingBar from '../../../Shared/LoadingBar';
 
 const AddDoctor = () => {

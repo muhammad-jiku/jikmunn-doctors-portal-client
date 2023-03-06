@@ -1,6 +1,9 @@
-import { format } from 'date-fns';
 import React, { useState } from 'react';
+//  external imports
+import { format } from 'date-fns';
 import { useQuery } from 'react-query';
+
+//  internal imports
 import LoadingBar from '../Shared/LoadingBar';
 import AppointmentModal from './AppointmentModal';
 import AppointmentService from './AppointmentService';

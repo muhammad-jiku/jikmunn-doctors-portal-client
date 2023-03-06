@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
+
+//  external imports
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import useToken from '../../customHooks/useToken/useToken';
+
+//  internal imports
 import auth from '../../firebase.init';
 import LoadingBar from '../Shared/LoadingBar';
 import googleLogo from '../../assets/images/google.png';
+import useToken from '../../customHooks/useToken/useToken';
 
 const SignIn = () => {
   const navigate = useNavigate();

@@ -1,7 +1,11 @@
 import React from 'react';
+
+//  external import
 import { useQuery } from 'react-query';
-import LoadingBar from '../../../Shared/LoadingBar';
+
+//  internal imports
 import UserTableRow from './UserTableRow';
+import LoadingBar from '../../../Shared/LoadingBar';
 
 const ManageUsers = () => {
   const {

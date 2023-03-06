@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  external import
 import { toast } from 'react-toastify';
 
 const UserTableRow = ({ user, idx, refetch }) => {

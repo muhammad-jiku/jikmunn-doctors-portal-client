@@ -1,6 +1,7 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
+//  external imports
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 const CheckoutPayment = ({ appointment }) => {
   const [cardError, setCardError] = useState('');
   const [success, setSuccess] = useState('');

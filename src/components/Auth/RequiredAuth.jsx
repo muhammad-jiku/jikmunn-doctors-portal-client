@@ -1,10 +1,14 @@
 import React from 'react';
+
+//  external imports
 import {
   useAuthState,
   useSendEmailVerification,
 } from 'react-firebase-hooks/auth';
-import { Navigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Navigate, useLocation } from 'react-router-dom';
+
+//  internal imports
 import auth from '../../firebase.init';
 import LoadingBar from '../Shared/LoadingBar';
 

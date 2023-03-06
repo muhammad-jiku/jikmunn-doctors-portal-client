@@ -1,7 +1,11 @@
-import { format } from 'date-fns';
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+
+//  external imports
+import { format } from 'date-fns';
 import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+//  internal import
 import auth from '../../firebase.init';
 
 const AppointmentModal = ({ date, treatment, setTreatment, refetch }) => {

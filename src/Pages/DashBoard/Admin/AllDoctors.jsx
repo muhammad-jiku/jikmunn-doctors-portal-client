@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  internal import
 import ManageDoctors from '../../../components/Dashboard/Admin/Doctors/ManageDoctors';
 
 const AllDoctors = () => {

@@ -1,40 +1,14 @@
 import React from 'react';
+
+//  external import
 import { useQuery } from 'react-query';
-import quote from '../../assets/icons/quote.svg';
-import people1 from '../../assets/images/people1.png';
-import people2 from '../../assets/images/people2.png';
-import people3 from '../../assets/images/people3.png';
-import LoadingBar from '../Shared/LoadingBar';
+
+//  internal imports
 import Testimonial from './Testimonial';
+import LoadingBar from '../Shared/LoadingBar';
+import quote from '../../assets/icons/quote.svg';
 
 const Testimonials = () => {
-  // const reviews = [
-  //   {
-  //     _id: 101,
-  //     name: 'Harry Potter',
-  //     review:
-  //       'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
-  //     img: people1,
-  //     rating: 4,
-  //   },
-  //   {
-  //     _id: 102,
-  //     name: 'Gwen Stacy',
-  //     review:
-  //       'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
-  //     img: people2,
-  //     rating: 5,
-  //   },
-  //   {
-  //     _id: 103,
-  //     name: 'Marie Jane',
-  //     review:
-  //       'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
-  //     img: people3,
-  //     rating: 5,
-  //   },
-  // ];
-
   const { data: reviews, isLoading } = useQuery('reviews', () =>
     fetch('http://localhost:5000/reviews').then((res) => res.json())
   );

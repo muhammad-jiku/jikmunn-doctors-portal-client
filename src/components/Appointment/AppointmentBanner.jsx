@@ -1,6 +1,10 @@
 import React from 'react';
+
+//  external imports
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+
+//  internal import
 import chair from '../../assets/images/chair.png';
 
 const AppointmentBanner = ({ date, setDate }) => {

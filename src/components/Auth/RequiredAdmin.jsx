@@ -1,10 +1,14 @@
-import { signOut } from 'firebase/auth';
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+
+//  external imports
+import { signOut } from 'firebase/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-import useAdmins from '../../customHooks/useAdmins/useAdmins';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+//  internal imports
 import auth from '../../firebase.init';
 import LoadingBar from '../Shared/LoadingBar';
+import useAdmins from '../../customHooks/useAdmins/useAdmins';
 
 const RequiredAdmin = ({ children }) => {
   const [user, loading] = useAuthState(auth);

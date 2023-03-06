@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  internal imports
 import Button from '../../Shared/Button';
 import treatment from '../../../assets/images/treatment.png';
 

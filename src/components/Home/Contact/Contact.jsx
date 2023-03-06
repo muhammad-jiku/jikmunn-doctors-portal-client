@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  internal import
 import Button from '../../Shared/Button';
 
 const Contact = () => {

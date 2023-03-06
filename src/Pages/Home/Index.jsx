@@ -1,10 +1,12 @@
 import React from 'react';
-import AppointmentDesc from '../../components/Home/AppointmentDesc/AppointmentDesc';
+
+//  internal imports
+import Info from '../../components/Home/Info/Info';
 import Banner from '../../components/Home/Banner/Banner';
 import Contact from '../../components/Home/Contact/Contact';
-import Info from '../../components/Home/Info/Info';
 import Services from '../../components/Home/Services/Services';
 import Testimonials from '../../components/Testimonials/Testimonials';
+import AppointmentDesc from '../../components/Home/AppointmentDesc/AppointmentDesc';
 
 const HomeIndex = () => {
   return (

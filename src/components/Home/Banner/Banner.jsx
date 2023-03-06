@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  internal imports
 import Button from '../../Shared/Button';
 import chair from '../../../assets/images/chair.png';
 

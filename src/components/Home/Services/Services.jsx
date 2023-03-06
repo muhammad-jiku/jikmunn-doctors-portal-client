@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  internal imports
 import Service from './Service';
 import ServiceText from './ServiceText';
 import fluoride from '../../../assets/images/fluoride.png';
