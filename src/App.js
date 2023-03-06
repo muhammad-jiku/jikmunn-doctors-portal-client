@@ -1,36 +1,46 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Appointment from './Pages/Appointment/Appointment/Appointment';
-import Home from './Pages/Home/Home/Home';
-import Header from './Pages/Shared/Header/Header';
-import Reviews from './Pages/Reviews/Reviews';
-import SignIn from './Pages/Authentication/SignIn/SignIn';
-import SignUp from './Pages/Authentication/SignUp/SignUp';
-import Footer from './Pages/Shared/Footer/Footer';
-import RequiredAuth from './Pages/Authentication/RequiredAuth/RequiredAuth';
 import { ToastContainer } from 'react-toastify';
-import NotFound from './Pages/Shared/NotFound/NotFound';
-import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
-import MyAppointments from './Pages/DashBoard/MyAppointments/MyAppointments';
-import AllUsers from './Pages/DashBoard/AllUsers/AllUsers';
-import RequiredAdmin from './Pages/Authentication/RequiredAdmin/RequiredAdmin';
-import AddDoctor from './Pages/DashBoard/AddDoctor/AddDoctor';
-import ManageDoctors from './Pages/DashBoard/ManageDoctors/ManageDoctors';
-import Payment from './Pages/DashBoard/Payment/Payment';
-import AddReview from './Pages/DashBoard/AddReview/AddReview';
+
+//  shared components
+import Navbar from './components/Shared/Navbar';
+import Footer from './components/Shared/Footer';
+import RequiredAuth from './components/Auth/RequiredAuth';
+import RequiredAdmin from './components/Auth/RequiredAdmin';
+
+//  pages
+import HomeIndex from './Pages/Home/Index';
+import AppointmentIndex from './Pages/Appointment/Index';
+import SignInIndex from './Pages/Authentication/SignIn/Index';
+import SignUpIndex from './Pages/Authentication/SignUp/Index';
+import TestimonialIndex from './Pages/Testimonials/Index';
+import DashboardIndex from './Pages/DashBoard/Index';
+
+//  user pages
+import PaymentIndex from './Pages/DashBoard/User/Payment';
+import MyAppointment from './Pages/DashBoard/User/MyAppointment';
+import AddTestimonial from './Pages/DashBoard/User/AddTestimonial';
+
+//  admin pages
+import AllUsers from './Pages/DashBoard/Admin/AllUsers';
+import Doctor from './Pages/DashBoard/Admin/Doctor';
+import AllDoctors from './Pages/DashBoard/Admin/AllDoctors';
+
+//  404 page
+import ErrorIndex from './Pages/Error/Error';
 
 function App() {
   return (
     <div className="max-w-7xl mx-auto flex flex-col min-h-screen">
-      <Header />
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomeIndex />} />
         <Route
           path="/appointment"
           element={
             <RequiredAuth>
-              <Appointment />
+              <AppointmentIndex />
             </RequiredAuth>
           }
         />
@@ -38,12 +48,12 @@ function App() {
           path="/dashboard"
           element={
             <RequiredAuth>
-              <DashBoard />
+              <DashboardIndex />
             </RequiredAuth>
           }
         >
-          <Route index element={<MyAppointments />} />
-          <Route path="addreview" element={<AddReview />} />
+          <Route index element={<MyAppointment />} />
+          <Route path="addreview" element={<AddTestimonial />} />
           <Route
             path="allusers"
             element={
@@ -56,7 +66,7 @@ function App() {
             path="addDoctor"
             element={
               <RequiredAdmin>
-                <AddDoctor />
+                <Doctor />
               </RequiredAdmin>
             }
           />
@@ -64,16 +74,16 @@ function App() {
             path="doctors"
             element={
               <RequiredAdmin>
-                <ManageDoctors />
+                <AllDoctors />
               </RequiredAdmin>
             }
           />
-          <Route path="payment/:id" element={<Payment />} />
+          <Route path="payment/:id" element={<PaymentIndex />} />
         </Route>
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/reviews" element={<TestimonialIndex />} />
+        <Route path="/signin" element={<SignInIndex />} />
+        <Route path="/signup" element={<SignUpIndex />} />
+        <Route path="*" element={<ErrorIndex />} />
       </Routes>
       <ToastContainer />
       <Footer />
