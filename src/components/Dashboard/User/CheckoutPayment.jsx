@@ -72,8 +72,58 @@ const CheckoutPayment = ({ appointment }) => {
         },
       });
 
+    // if (error) {
+    //   console.log('error....', error);
+    //   console.log('error message....', error?.message);
+    //   setCardError(error?.message);
+    //   success('');
+    //   setIsProcessing(false);
+    // } else {
+    //   try {
+    //     const { paymentIntent } =
+    //       await stripe.confirmCardPayment(clientSecret, {
+    //         payment_method: {
+    //           card: card,
+    //           billing_details: {
+    //             name: appointment?.patientName,
+    //             email: appointment?.patient,
+    //           },
+    //         },
+    //       });
+    //     console.log(paymentMethod, paymentIntent);
+    //     setCardError('');
+    //     setSuccess('Payment is successful');
+    //     setTransactionId(paymentIntent?.id);
+    //     // store payment data on database
+    //     const payment = {
+    //       appointmentId: appointment?._id,
+    //       transactionId: paymentIntent?.id,
+    //     };
+    //     fetch(`http://localhost:5000/booking/${appointment?._id}`, {
+    //       method: 'PATCH',
+    //       headers: {
+    //         'content-type': 'application/json',
+    //         authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
+    //       },
+    //       body: JSON.stringify(payment),
+    //     })
+    //       .then((res) => res.json())
+    //       .then((data) => {
+    //         setIsProcessing(false);
+    //         console.log(data);
+    //       })
+    //       .catch((err) => console.log(err));
+    //   } catch (error) {
+    //     console.error(error);
+    //     setIsProcessing(false);
+    //   }
+    // }
+
     if (error || intentError) {
-      console.log('error....', error, intentError);
+      console.log('error....', error);
+      console.log('error message....', error?.message);
+      console.log('intent error....', intentError);
+      console.log('intent error message....', intentError?.message);
       setCardError(error?.message || intentError?.message);
       success('');
       setIsProcessing(false);
