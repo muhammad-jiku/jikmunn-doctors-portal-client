@@ -1,9 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import About from './Pages/About/About';
 import Appointment from './Pages/Appointment/Appointment/Appointment';
-import Contact from './Pages/Contact/Contact';
 import Home from './Pages/Home/Home/Home';
 import Header from './Pages/Shared/Header/Header';
 import Reviews from './Pages/Reviews/Reviews';
@@ -15,13 +13,12 @@ import { ToastContainer } from 'react-toastify';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
 import MyAppointments from './Pages/DashBoard/MyAppointments/MyAppointments';
-import MyReview from './Pages/DashBoard/MyReview/MyReview';
-import MyHistory from './Pages/DashBoard/MyHistory/MyHistory';
 import AllUsers from './Pages/DashBoard/AllUsers/AllUsers';
 import RequiredAdmin from './Pages/Authentication/RequiredAdmin/RequiredAdmin';
 import AddDoctor from './Pages/DashBoard/AddDoctor/AddDoctor';
 import ManageDoctors from './Pages/DashBoard/ManageDoctors/ManageDoctors';
 import Payment from './Pages/DashBoard/Payment/Payment';
+import AddReview from './Pages/DashBoard/AddReview/AddReview';
 
 function App() {
   return (
@@ -29,7 +26,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route
           path="/appointment"
           element={
@@ -47,8 +43,7 @@ function App() {
           }
         >
           <Route index element={<MyAppointments />} />
-          <Route path="myreview" element={<MyReview />} />
-          <Route path="myhistory" element={<MyHistory />} />
+          <Route path="addreview" element={<AddReview />} />
           <Route
             path="allusers"
             element={
@@ -76,7 +71,6 @@ function App() {
           <Route path="payment/:id" element={<Payment />} />
         </Route>
         <Route path="/reviews" element={<Reviews />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />

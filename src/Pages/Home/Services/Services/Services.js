@@ -33,12 +33,11 @@ function Services() {
           Our services
         </h1>
         <h1 className="font-bold text-5xl">Services We Provide</h1>
-      </div>{' '}
+      </div>
       <div className="grid grid-cols-1 mx-auto my-16 lg:grid-cols-3 gap-5 px-6 md:px-28">
-        {' '}
         {services?.map((service) => (
           <Service key={service?._id} service={service} />
-        ))}{' '}
+        ))}
       </div>
       <div className="container mx-auto">
         <Description />

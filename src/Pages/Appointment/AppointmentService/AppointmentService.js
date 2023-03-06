@@ -15,9 +15,9 @@ function AppointmentService({ service, setTreatment }) {
           )}
         </p>
         <p>
-          {availableSlots?.length}{' '}
+          {availableSlots?.length}
           {availableSlots?.length > 1 ? ' spaces are' : ' space is'} available
-          now{' '}
+          now
         </p>
         <p>
           <small>Fee: BDT {price} only</small>

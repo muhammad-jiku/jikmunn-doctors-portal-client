@@ -72,7 +72,7 @@ function AddDoctor() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">Add a new Doctor</h1>{' '}
+      <h1 className="text-2xl font-bold">Add a new Doctor</h1>
       {/* <div className="hero min-h-screen bg-base-200"> */}
       {/* <div className="hero-content"> */}
       <div className="container mx-auto px-4 lg:px-64 card bg-base-100">
@@ -142,7 +142,7 @@ function AddDoctor() {
                 <span className="label-text text-primary font-bold">
                   Speciality
                 </span>
-              </label>{' '}
+              </label>
               <select
                 className="select select-primary"
                 {...register('speciality')}
@@ -202,14 +202,14 @@ function AddDoctor() {
                 type="submit"
                 className="btn btn-primary text-white uppercase"
                 value="Add Doctor"
-              />{' '}
+              />
               {/* <p className="text-center font-bold">
-                    New to Doctors Portal?{' '}
+                    New to Doctors Portal? 
                     <span
                       className="text-primary cursor-pointer"
                       onClick={() => navigate('/signup')}
                     >
-                      {' '}
+                       
                       sign up
                     </span>
                   </p> */}

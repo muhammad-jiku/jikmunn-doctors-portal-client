@@ -24,10 +24,7 @@ function DashBoard() {
             <Link to="/dashboard">My Appointments</Link>
           </li>
           <li>
-            <Link to="/dashboard/myreview">My Review</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/myhistory">My History</Link>
+            <Link to="/dashboard/addreview">Add Review</Link>
           </li>
           {admins && (
             <>

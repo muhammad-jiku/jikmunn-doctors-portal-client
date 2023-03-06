@@ -150,7 +150,7 @@ function SignIn() {
                   {errors.password?.type === 'minLength' && (
                     <span>{errors?.password?.message}</span>
                   )}
-                </p>{' '}
+                </p>
                 <p className="font-bold">
                   {/* <a href="#" className="label-text-alt link link-hover"> */}
                   Forget password?
@@ -158,7 +158,6 @@ function SignIn() {
                     className="text-primary cursor-pointer"
                     onClick={handlePasswordReset}
                   >
-                    {' '}
                     Reset Password
                   </span>
                   {/* </a> */}
@@ -171,15 +170,14 @@ function SignIn() {
                   type="submit"
                   className="btn btn-primary text-white uppercase"
                   value="Sign In"
-                />{' '}
+                />
                 <p className="text-center font-bold">
                   {/* <a href="#" className="label-text-alt link link-hover"> */}
-                  New to Doctors Portal?{' '}
+                  New to Doctors Portal?
                   <span
                     className="text-primary cursor-pointer"
                     onClick={() => navigate('/signup')}
                   >
-                    {' '}
                     sign up
                   </span>
                   {/* </a> */}

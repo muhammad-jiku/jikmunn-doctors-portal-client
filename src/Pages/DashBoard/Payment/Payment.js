@@ -22,6 +22,7 @@ function Payment() {
   );
 
   if (isLoading) return <Spinner />;
+
   return (
     <div className="hero min-h-screen bg-base-100">
       {/* {console.log(appointment)} */}
@@ -30,19 +31,18 @@ function Payment() {
           <div className="card-body">
             <h2 className="card-title">{appointment?.treatment}</h2>
             <p>
-              Dear{' '}
+              Dear
               <span className="text-primary font-bold uppercase">
                 {appointment?.patientName}
-              </span>{' '}
-              , Your appointment is set on {appointment?.date} at{' '}
-              {appointment?.patientSlotTime}.{' '}
+              </span>
+              , Your appointment is set on {appointment?.date} at
+              {appointment?.patientSlotTime}.
             </p>
             <p>
-              Please pay BDT{' '}
+              Please pay BDT
               <span className="text-orange-500 font-semibold">
-                {' '}
                 {appointment?.fee}
-              </span>{' '}
+              </span>
               only to continue your appointment to the doctor.
             </p>
           </div>

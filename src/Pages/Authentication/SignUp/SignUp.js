@@ -167,7 +167,7 @@ function SignUp() {
                   {errors.password?.type === 'minLength' && (
                     <span>{errors?.password?.message}</span>
                   )}
-                </p>{' '}
+                </p>
                 {/* <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
@@ -181,15 +181,14 @@ function SignUp() {
                   type="submit"
                   className="btn btn-primary text-white uppercase"
                   value="Sign Up"
-                />{' '}
+                />
                 <p className="text-center font-bold">
                   {/* <a href="#" className="label-text-alt link link-hover"> */}
-                  Already have an account?{' '}
+                  Already have an account?
                   <span
                     className="text-primary cursor-pointer"
                     onClick={() => navigate('/signin')}
                   >
-                    {' '}
                     sign in
                   </span>
                   {/* </a> */}

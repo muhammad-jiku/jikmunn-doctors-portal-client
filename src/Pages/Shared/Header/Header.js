@@ -18,32 +18,26 @@ function Header() {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
+
       <li>
         <Link to="/appointment">Appointment</Link>
       </li>
       <li>
         <Link to="/reviews">Reviews</Link>
       </li>
-      <li>
-        <Link to="/contact">Contact us</Link>
-      </li>
+
       {user ? (
         <>
-          {' '}
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li className="mr-2 font-bold">
             <p>
-              {' '}
               <FontAwesomeIcon
                 icon={faUser}
                 className="text-primary"
                 // size="6x"
-              />{' '}
+              />
               {user ? user?.displayName : user?.email}
             </p>
           </li>

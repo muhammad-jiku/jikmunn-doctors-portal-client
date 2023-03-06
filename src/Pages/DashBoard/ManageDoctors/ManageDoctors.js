@@ -24,7 +24,7 @@ function ManageDoctors() {
   return (
     <div>
       <h1 className="text-xl uppercase font-bold">
-        Doctors: {doctors?.length}{' '}
+        Doctors: {doctors?.length}
       </h1>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
@@ -51,7 +51,7 @@ function ManageDoctors() {
             ))}
           </tbody>
         </table>
-      </div>{' '}
+      </div>
       {confirmDelteModal && (
         <DeleteConfirmModal
           refetch={refetch}

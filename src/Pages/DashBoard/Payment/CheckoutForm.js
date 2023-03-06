@@ -134,8 +134,8 @@ function CheckoutForm({ appointment }) {
         <div className="text-success text-center font-semibold">
           <p>{success}</p>
           <p>
-            Your transaction id is{' '}
-            <span className="text-orange-500">{transactionId}</span>{' '}
+            Your transaction id is
+            <span className="text-orange-500">{transactionId}</span>
           </p>
         </div>
       )}
