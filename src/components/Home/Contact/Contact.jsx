@@ -1,4 +1,6 @@
 import React from 'react';
+
+//   external import
 import { toast } from 'react-toastify';
 
 //  internal import
@@ -11,14 +13,12 @@ const Contact = () => {
     let email = e?.target?.email?.value;
     let subject = e?.target?.subject?.value;
     let message = e?.target?.message?.value;
-    console.log(email, subject, message);
 
     const contact = {
       email,
       subject,
       message,
     };
-    console.log(contact);
 
     fetch('http://localhost:5000/contact', {
       method: 'POST',
