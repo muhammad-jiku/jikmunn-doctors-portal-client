@@ -73,6 +73,7 @@ const AppointmentModal = ({ date, treatment, setTreatment, refetch }) => {
       })
       .catch((err) => console.log(err));
   };
+
   return (
     <div>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
